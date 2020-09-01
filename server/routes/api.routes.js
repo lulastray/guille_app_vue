@@ -24,7 +24,7 @@ router.post('/new_task', (req, res) => {
 })
 
 router.get("/all_tasks", (req, res) => {
-    Task.find({creatorID: "5f311bf6a3bc246a6cb655f1"})
+    Task.find()
     .then(allTasks => {
         // console.log("all tasks", allTasks)
         return res.json(allTasks)
@@ -77,7 +77,7 @@ router.post('/new_reward', async (req, res) => {
 
 router.get('/all_rewards', async (req, res) => {
     try {
-        const allRewards = await Rewards.find({creatorID: "5f311bf6a3bc246a6cb655f1"})
+        const allRewards = await Rewards.find()
         console.log(allRewards)
         return res.status(200).json(allRewards)
 
