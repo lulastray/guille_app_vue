@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
+
     {
         path: "/tasks",
         name: "Tasks",
@@ -21,9 +22,14 @@ const routes = [
     },
     {
         path: "/",
-        name: "Home",
-        component: () => import('@/views/Home')
+        name: "Login",
+        component: () => import('@/views/auth/Login')
 
+    },
+    {
+        path:"/signup",
+        name:"Signup",
+        component: () => import('@/views/auth/Signup')
     },
     // TODO: hacer pagina de not found
     {
