@@ -3,31 +3,38 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+export const TASKS_LIST_PATH = "/tasks"
+export const REWARDS_LIST_PATH = "/rewards"
+export const HOME_PATH = "/home"
+export const LOGIN_PATH = "/"
+export const SIGNUP_PATH = "/signup"
+
+
 const routes = [
 
     {
-        path: "/tasks",
+        path: TASKS_LIST_PATH,
         name: "Tasks",
-        component: () => import('@/views/TaskList')
+        component: () => import('@/views/tasks/TaskList')
     },
     {
-        path: "/add_task",
-        name: "Add tasks",
-        component: () => import('@/views/TaskForm')  
+        path: HOME_PATH,
+        name: "Home",
+        component: () => import('@/views/Home')  
     },
     {
-        path:'/rewards',
+        path: REWARDS_LIST_PATH,
         name:"Rewards",
         component: () => import('@/views/rewards/RewardList')
     },
     {
-        path: "/",
+        path: LOGIN_PATH,
         name: "Login",
         component: () => import('@/views/auth/Login')
 
     },
     {
-        path:"/signup",
+        path: SIGNUP_PATH,
         name:"Signup",
         component: () => import('@/views/auth/Signup')
     },
@@ -35,7 +42,7 @@ const routes = [
     {
         path: "*",
         name: "Not Found",
-        component: () => import('@/views/TaskList')
+        component: () => import('@/views/errors/NotFound')
 
     }
 ]

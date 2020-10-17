@@ -39,9 +39,7 @@ export const actions = {
         commit("SET_MESSAGE", message)
         router.push("/tasks")
     },
-    clearMessage({ commit }) {
-        commit("SET_MESSAGE", "")
-    }
+      
 }
 
 

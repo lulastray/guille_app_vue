@@ -1,8 +1,8 @@
 <template>
-  <section class="login-wrapper">
+  <section class="signUp-wrapper">
     <v-container>
       <h1 class="text-center mt-16">
-        Wellcome to GuilleApp
+        Welcome to GuilleApp
       </h1>
       <v-card max-width="80%" class="ma-auto mt-10">
         <v-card-title
@@ -10,8 +10,8 @@
         >
           Signup
         </v-card-title>
-        <v-card-subtitle>
-          <v-form ref="form" v-model="valid" lazy-validation>
+        <v-card-subtitle class="mt-5">
+          <v-form ref="form" v-model="valid">
             <v-text-field
               v-model="email"
               :rules="emailRules"
@@ -31,12 +31,7 @@
               @click:append="show1 = !show1"
             ></v-text-field>
             <div class="text-center">
-              <v-btn
-                :disabled="!valid"
-                color="cyan"
-                class=""
-                @click="validate"
-              >
+              <v-btn :disabled="!valid" color="cyan" class="mt-5">
                 Login
               </v-btn>
             </div>
@@ -44,7 +39,12 @@
         </v-card-subtitle>
       </v-card>
       <div class="mt-4">
-        <p class="white--text text-center">If you´re alreadey a user, please <router-link to="/" class="text-decoration-none yellow--text">Login</router-link></p>
+        <p class="white--text text-center">
+          If you´re alreadey a user, please
+          <router-link to="/" class="text-decoration-none yellow--text"
+            >Login</router-link
+          >
+        </p>
       </div>
     </v-container>
   </section>
@@ -55,6 +55,7 @@ export default {
   name: "Signup",
   data() {
     return {
+      valid: false,
       show1: false,
       rules: {
         required: (value) => !!value || "Required.",
@@ -67,16 +68,13 @@ export default {
 </script>
 
 <style scope>
-.login-wrapper {
+.signUp-wrapper {
   height: 100%;
-  background-color: #26A69A;
+  background-color: #26a69a;
 }
 
 h1 {
   color: #37474f;
   text-transform: uppercase;
-}
-router-link{
-
 }
 </style>

@@ -2,7 +2,7 @@
   <section class="login-wrapper">
     <v-container>
       <h1 class="text-center mt-16">
-        Wellcome to GuilleApp
+        Welcome to GuilleApp
       </h1>
       <v-card max-width="80%" class="ma-auto mt-10">
         <v-card-title
@@ -10,8 +10,8 @@
         >
           Login
         </v-card-title>
-        <v-card-subtitle>
-          <v-form ref="form" v-model="valid" lazy-validation>
+        <v-card-subtitle class="mt-5">
+          <v-form ref="form" v-model="valid">
             <v-text-field
               v-model="email"
               :rules="emailRules"
@@ -34,8 +34,7 @@
               <v-btn
                 :disabled="!valid"
                 color="cyan lighten-1"
-                class=""
-                @click="validate"
+                class="mt-5"
               >
                 Login
               </v-btn>
@@ -55,11 +54,12 @@ export default {
   name: "Login",
   data() {
     return {
+      valid: false,
       show1: false,
-      show2: true,
-      show3: false,
-      show4: false,
-
+      user:{
+        email: "",
+        password:""
+      },
       rules: {
         required: (value) => !!value || "Required.",
         min: (v) => v.length >= 8 || "Min 8 characters",
@@ -73,7 +73,7 @@ export default {
 <style scope>
 .login-wrapper {
   height: 100%;
-  background-color: #e94f37;
+  background-color: #FF7043;
 }
 
 h1 {
